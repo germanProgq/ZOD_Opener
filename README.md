@@ -29,7 +29,7 @@ This repository contains a tool for recursively unzipping massive zip files and 
 4. **Run the Tool**: Execute the compiled binary and provide the necessary arguments to specify the target zip file, destination directory, and any other options.
 
    ```bash
-   mass_unzipper.exe -zip "path/to/your/zipfile.zip" -dest "path/to/destination/directory" -password "your_zip_password"
+   Zip.exe -zip "path/to/your/zipfile.zip" -dest "path/to/destination/directory" -password "your_zip_password"
    ```
 
 5. **Sit Back and Relax**: The tool will recursively unzip the specified zip file and all nested zip files while bypassing Windows Defender detection.
