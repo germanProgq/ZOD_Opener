@@ -41,7 +41,3 @@ Contributions are welcome! If you encounter any issues or have suggestions for i
 ## Disclaimer
 
 **Use this tool responsibly and only on files that you have permission to access.** The authors of this tool are not responsible for any misuse or unauthorized access to files.
-
----
-
-Feel free to customize this template according to your specific requirements and project details. If you have any questions or need further assistance, don't hesitate to ask!
