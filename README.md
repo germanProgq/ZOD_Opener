@@ -1,43 +1,28 @@
-# ZOD recursive unzipper
+# ZOD Opener
 
-This repository contains a tool for recursively unzipping massive zip files and overriding Windows Defender to prevent interference with the process.
+A small Windows command line tool in C++ that recursively extracts nested zip archives. If an extracted file is itself a zip, it opens that too, down to any depth. Encrypted archives are supported with a password.
 
-## Features
-
-- **Recursive Unzipping**: The tool is capable of recursively unzipping zip files within zip files to an arbitrary depth.
-- **Windows Defender Override**: It includes functionality to override Windows Defender, ensuring uninterrupted operation during the unzipping process.
-- **Customizable Configuration**: Users can configure various aspects of the unzipping process, such as the target directory and password for encrypted zip files.
+It uses libzip for reading and extracting archives.
 
 ## Requirements
 
-- **Operating System**: Windows (tested on Windows 10)
-- **C++ Compiler**: Compatible C++ compiler for building the source code.
-- **Windows Defender Configuration**: Admin privileges may be required to modify Windows Defender settings.
+- Windows
+- A C++ compiler and the Visual Studio solution in this repo (`Zip.sln`)
+- libzip, installed through the included `packages.config` (NuGet)
+
+## Build
+
+Open `Zip.sln` in Visual Studio and build the `Zip` project. The dependencies restore from NuGet.
 
 ## Usage
 
-1. **Clone the Repository**: Clone this repository to your local machine using the following command:
+Set the archive path and optional password in `Zip/Zip.cpp`, then run the built executable. The tool walks the archive, extracts each entry, and recurses into any nested `.zip` files it finds.
 
-   ```bash
-   git clone https://github.com/germanProgq/ZOD_Opener
-   ```
+```text
+Extracting file: ...
+Extracting nested zip: ...
+```
 
-2. **Build the Tool**: Navigate to the cloned directory and build the tool using your preferred C++ compiler.
+## Notes
 
-3. **Configure Windows Defender Override**: Follow the instructions provided in the `windows_defender_override.md` file to configure Windows Defender to allow the tool to run without interference.
-
-4. **Run the Tool**: Execute the compiled binary and provide the necessary arguments to specify the target zip file, destination directory, and any other options.
-
-   ```bash
-   Zip.exe -zip "path/to/your/zipfile.zip" -dest "path/to/destination/directory" -password "your_zip_password"
-   ```
-
-5. **Sit Back and Relax**: The tool will recursively unzip the specified zip file and all nested zip files while bypassing Windows Defender detection.
-
-## Contribution
-
-Contributions are welcome! If you encounter any issues or have suggestions for improvements, feel free to open an issue or submit a pull request.
-
-## Disclaimer
-
-**Use this tool responsibly and only on files that you have permission to access.** The authors of this tool are not responsible for any misuse or unauthorized access to files.
+This is a personal utility for unpacking deeply nested archives. Use it on files you trust, since extracting unknown archives can write a large number of files to disk.
